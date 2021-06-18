@@ -35,26 +35,16 @@ const Cart = (): JSX.Element => {
     )
 
   function handleProductIncrement(product: Product) {
-    const amount = cart.find(p => p.id === product.id)?.amount;
-
-    if(amount) {
-      updateProductAmount({productId: product.id, amount: amount + 1});
-    }
+    updateProductAmount({productId: product.id, amount: product.amount + 1});
   }
 
   function handleProductDecrement(product: Product) {
-    const amount = cart.find(p => p.id === product.id)?.amount;
-
-    if(amount) {
-      updateProductAmount({productId: product.id, amount: amount - 1});
-    }
+    updateProductAmount({productId: product.id, amount: product.amount - 1});
   }
 
   function handleRemoveProduct(productId: number) {
     removeProduct(productId);
   }
-
-  console.log(cart);
 
   return (
     <Container>
